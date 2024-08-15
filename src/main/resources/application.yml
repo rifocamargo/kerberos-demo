@@ -1,0 +1,28 @@
+server:
+  port: 80
+
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+  ldap:
+    urls: 
+      ldap://lecom.local
+    base: dc=lecom,dc=local
+    username: ricardo.camargo@lecom.local
+    password: L3c0m@2017
+    custom:
+      user-dn-patterns: sAMAccountName
+
+app:
+  kerberos-conf: C:\\Desenv\\repositorios\\kerberos-demo\\src\\test\\resources\\kerberos.conf
+  ad-domain: LECOM.LOCAL
+  ad-server: ldap://lecom.local/
+  service-principal: ricardo.camargo@LECOM.LOCAL
+  keytab-location: C:\\temp\\tomcat.keytab
+  ldap-search-base: 
+  ldap-search-filter: (| (userPrincipalName={0}) (sAMAccountName={0}))
+  ldap-role-prefix: ROLE_
+  ldap-role-attribute: memberof
+  
